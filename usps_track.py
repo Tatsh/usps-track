@@ -2,7 +2,8 @@
 # PYTHON_ARGCOMPLETE_OK
 from os.path import basename
 from types import SimpleNamespace
-from typing import Any, Final, Iterable, List, Literal, Optional, Sequence, TypedDict, cast
+from typing import (Any, Final, Iterable, List, Literal, Optional, Sequence,
+                    TypedDict, cast)
 import argparse
 import asyncio
 import logging
