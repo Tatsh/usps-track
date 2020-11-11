@@ -21,7 +21,14 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
+        'Framework :: AsyncIO',
+        'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
         'Programming Language :: Python :: 3 :: Only',
+        'Topic :: Communications',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Utilities',
+        'Typing :: Typed',
     ])
