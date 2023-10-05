@@ -1,28 +1,24 @@
 # usps-track
 
+[![QA](https://github.com/Tatsh/usps-track/actions/workflows/qa.yml/badge.svg)](https://github.com/Tatsh/usps-track/actions/workflows/qa.yml)
+[![Tests](https://github.com/Tatsh/usps-track/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsh/usps-track/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Tatsh/usps-track/badge.svg?branch=master)](https://coveralls.io/github/Tatsh/usps-track?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/usps-track/badge/?version=latest)](https://usps-track.readthedocs.io/en/latest/?badge=latest)
+![PyPI - Version](https://img.shields.io/pypi/v/usps-track)
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Tatsh/usps-track)
+![GitHub](https://img.shields.io/github/license/Tatsh/usps-track)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/usps-track/v0.0.1/master)
+
 Quickly track via SMS several USPS (and some international) tracking numbers via the command line.
 
-For international to work, the destination country must be USA.
+## Installation
 
-The phone number argument must be a US phone number.
-
-## Usage
-
-```plain
-usage: usps_track.py [-h] TRACKING_NUMBER [TRACKING_NUMBER ...] PHONE_NUMBER
-
-positional arguments:
-  TRACKING_NUMBER  Tracking numbers
-  PHONE_NUMBER     Phone number to send SMS to (US only)
+```shell
+pip install usps-track
 ```
 
-This can also be used as a library:
+## Command line usage
 
-```python
-from usps_track import usps_track
-
-async def usage():
-    await usps_track('555-555-5555',
-                     ['tracking_number_1'],
-                     raise_for_status=True)
+```shell
+usps-track
 ```
