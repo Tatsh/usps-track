@@ -36,7 +36,7 @@ isort = "^5.12.0"
 mypy = "^1.5.1"
 rope = "^1.10.0"
 ruff = ">=0.5.1,<0.5.2"
-tomlkit = "^0.12.1"
+tomlkit = ">=0.12.1,<0.14.0"
 yapf = "^0.40.2"
 
 [tool.poetry.group.docs]
@@ -49,7 +49,7 @@ esbonio = "^0.16.1"
 restructuredtext-lint = "^1.4.0"
 sphinx = "^7.2.6"
 sphinx-click = ">=5.0.1,<7.0.0"
-tomlkit = "^0.12.1"
+tomlkit = ">=0.12.1,<0.14.0"
 
 [tool.poetry.group.tests]
 optional = true
