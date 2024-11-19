@@ -37,7 +37,7 @@ mypy = "^1.5.1"
 rope = "^1.10.0"
 ruff = ">=0.5.1,<0.7.5"
 tomlkit = ">=0.12.1,<0.14.0"
-yapf = "^0.40.2"
+yapf = ">=0.40.2,<0.44.0"
 
 [tool.poetry.group.docs]
 optional = true
