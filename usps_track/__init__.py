@@ -1,4 +1,2 @@
-"""usps_track"""
-from .main import main
-
-__all__ = ('main',)
+"""usps-track module."""
+__version__ = '0.0.1'
