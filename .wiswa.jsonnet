@@ -5,7 +5,7 @@ local utils = import 'utils.libjsonnet';
   description: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.',
   keywords: ['command line', 'shipping', 'usps'],
   project_name: 'usps-track',
-  version: '0.0.1',
+  version: '0.0.2',
   want_main: true,
   citation+: {
     'date-released': '2025-04-12',

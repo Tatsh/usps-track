@@ -7,7 +7,7 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/usps-track)](https://pypi.org/project/usps-track/)
 [![GitHub tag (with filter)](https://img.shields.io/github/v/tag/Tatsh/usps-track)](https://github.com/Tatsh/usps-track/tags)
 [![License](https://img.shields.io/github/license/Tatsh/usps-track)](https://github.com/Tatsh/usps-track/blob/master/LICENSE.txt)
-[![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/usps-track/v0.0.1/master)](https://github.com/Tatsh/usps-track/compare/v0.0.1...master)
+[![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/Tatsh/usps-track/v0.0.2/master)](https://github.com/Tatsh/usps-track/compare/v0.0.2...master)
 
 Quickly track via SMS several USPS (and some international) tracking numbers via the command line.
 

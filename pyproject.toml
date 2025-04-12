@@ -20,7 +20,7 @@ keywords = ["command line", "shipping", "usps"]
 license = "MIT"
 name = "usps-track"
 readme = "README.md"
-version = "0.0.1"
+version = "0.0.2"
 
 [[project.authors]]
 email = "audvare@gmail.com"
