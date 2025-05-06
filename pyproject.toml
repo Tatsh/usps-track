@@ -86,7 +86,7 @@ warn_unreachable = true
 include = ["man"]
 
 [tool.poetry.dependencies]
-aiohttp = "^3.11.16"
+aiohttp = "^3.11.18"
 click = "^8.1.8"
 python = ">=3.10,<3.14"
 typing-extensions = "^4.13.1"
