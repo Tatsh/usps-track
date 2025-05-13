@@ -2,6 +2,7 @@ aiohttp
 asyncio
 autodoc
 automodule
+bsky
 codeowners
 commitizen
 conftest
