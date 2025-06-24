@@ -2866,7 +2866,7 @@ __metadata:
     prettier-plugin-sort-json: "npm:^4.1.1"
     prettier-plugin-toml: "npm:^2.0.5"
     pyright: "npm:^1.1.402"
-    yarn-audit-fix: "npm:^10.1.0"
+    yarn-audit-fix: "npm:^10.1.1"
   languageName: unknown
   linkType: soft
 
@@ -2958,7 +2958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yarn-audit-fix@npm:^10.1.0":
+"yarn-audit-fix@npm:^10.1.1":
   version: 10.1.1
   resolution: "yarn-audit-fix@npm:10.1.1"
   dependencies:

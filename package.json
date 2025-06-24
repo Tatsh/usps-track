@@ -60,7 +60,7 @@
     "prettier-plugin-sort-json": "^4.1.1",
     "prettier-plugin-toml": "^2.0.5",
     "pyright": "^1.1.402",
-    "yarn-audit-fix": "^10.1.0"
+    "yarn-audit-fix": "^10.1.1"
   },
   "homepage": "https://tatsh.github.io/usps-track/",
   "keywords": ["command line", "shipping", "usps"],
@@ -78,7 +78,7 @@
     }
   },
   "name": "usps-track",
-  "packageManager": "yarn@4.9.0",
+  "packageManager": "yarn@4.9.2",
   "prettier": {
     "endOfLine": "lf",
     "iniSpaceAroundEquals": true,
