@@ -1,5 +1,7 @@
-from collections.abc import Iterable
-from typing import TypedDict, cast
+"""Main library code for usps_track."""
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, TypedDict, cast
 import logging
 
 from aiohttp import TraceConfig
@@ -14,34 +16,40 @@ from .constants import (
 )
 from .utils import on_off
 
+if TYPE_CHECKING:
+    from collections.abc import Iterable
+
 __all__ = ('TextServiceError', 'usps_track')
 
 logger = logging.getLogger(__name__)
 
 
 class ResponseDict(TypedDict):
+    """Response dictionary from USPS text service."""
     textServiceError: str
+    """Error string."""
 
 
 class TextServiceError(Exception):
-    pass
+    """An error occurred with the USPS text service."""
 
 
-async def usps_track(phone_number: str,
-                     tracking_numbers: Iterable[str],
-                     trace_configs: list[TraceConfig] | None = None,
-                     *,
-                     confirm_sms: bool = True,
-                     email: str = DEFAULT_STR_VALUE,
-                     name: str = DEFAULT_STR_VALUE,
-                     text_alert: bool = True,
-                     text_all: bool = True,
-                     text_dnd: bool = True,
-                     text_future: bool = True,
-                     text_oa: bool = True,
-                     text_pickup: bool = True,
-                     text_today: bool = True,
-                     raise_for_status: bool = False) -> None:
+async def usps_track(  # noqa: PLR0913
+        phone_number: str,
+        tracking_numbers: Iterable[str],
+        trace_configs: list[TraceConfig] | None = None,
+        *,
+        confirm_sms: bool = True,
+        email: str = DEFAULT_STR_VALUE,
+        name: str = DEFAULT_STR_VALUE,
+        text_alert: bool = True,
+        text_all: bool = True,
+        text_dnd: bool = True,
+        text_future: bool = True,
+        text_oa: bool = True,
+        text_pickup: bool = True,
+        text_today: bool = True,
+        raise_for_status: bool = False) -> None:
     """
     Track a package using the USPS tracking system via SMS.
 
@@ -80,8 +88,14 @@ async def usps_track(phone_number: str,
     text_pickup : bool
 
     text_today : bool
+
+    Raises
+    ------
+    TextServiceError
+        If the USPS text service returns an error.
     """
-    async with aiohttp.ClientSession(headers=HEADERS, trace_configs=trace_configs) as session:
+    async with aiohttp.ClientSession(  # noqa: PLR1702
+            headers=HEADERS, trace_configs=trace_configs) as session:
         for number in tracking_numbers:
             async with session.get(URL_TRACK_CONFIRM_ACTION,
                                    params={'qtc_tLabels1': number},

@@ -8,19 +8,18 @@ local utils = import 'utils.libjsonnet';
   version: '0.0.2',
   want_main: true,
   citation+: {
-    'date-released': '2025-04-12',
+    'date-released': '2025-08-27',
   },
   pyproject+: {
     tool+: {
       poetry+: {
         dependencies+: {
-          aiohttp: '^3.11.16',
-          click: '^8.1.8',
+          aiohttp: '^3.12.15',
         },
         group+: {
           tests+: {
             dependencies+: {
-              'pytest-asyncio': '^0.26.0',
+              'pytest-asyncio': '^1.1.0',
             },
           },
         },

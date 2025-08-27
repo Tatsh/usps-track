@@ -1,14 +1,22 @@
-from types import SimpleNamespace
+"""CLI entry point."""
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 import asyncio
 import logging
 
 from aiohttp import TraceConfig
-from aiohttp.tracing import TraceRequestStartParams
+from bascom import setup_logging
 import aiohttp
 import click
 
 from .constants import US_PHONE_NUMBER_WITH_LEADING_ONE_LENGTH
 from .lib import usps_track
+
+if TYPE_CHECKING:
+    from types import SimpleNamespace
+
+    from aiohttp.tracing import TraceRequestStartParams
 
 __all__ = ('main',)
 
@@ -26,7 +34,15 @@ async def on_request_start(  # pragma: no cover # noqa: RUF029
 @click.argument('phone_number', metavar='PHONE_NUMBER', nargs=1)
 @click.option('-d', '--debug', is_flag=True, help='Enable debug logging.')
 def main(phone_number: str, tracking_numbers: tuple[str, ...], *, debug: bool = False) -> None:
-    logging.basicConfig(level=logging.DEBUG if debug else logging.ERROR)
+    """Track USPS packages using tracking numbers and phone number."""
+    setup_logging(debug=debug,
+                  loggers={
+                      'usps_track': {
+                          'handlers': ('console',),
+                          'level': logging.DEBUG if debug else logging.INFO,
+                          'propagate': False,
+                      }
+                  })
     trace_configs = []
     if debug:
         trace_config = TraceConfig()
