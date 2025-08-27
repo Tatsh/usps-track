@@ -1,6 +1,6 @@
 # Copilot Instructions
 
-(Not set.)
+usps-track is a command line tool to track USPS packages via SMS.
 
 ## General
 

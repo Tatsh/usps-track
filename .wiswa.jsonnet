@@ -10,6 +10,9 @@ local utils = import 'utils.libjsonnet';
   citation+: {
     'date-released': '2025-08-27',
   },
+  copilot: {
+    intro: 'usps-track is a command line tool to track USPS packages via SMS.',
+  },
   pyproject+: {
     tool+: {
       poetry+: {
