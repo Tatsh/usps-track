@@ -1,9 +1,14 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
 from unittest.mock import AsyncMock
 
 from aiohttp import ContentTypeError
-from pytest_mock import MockerFixture
 from usps_track.lib import TextServiceError, usps_track
 import pytest
+
+if TYPE_CHECKING:
+    from pytest_mock import MockerFixture
 
 
 @pytest.mark.asyncio

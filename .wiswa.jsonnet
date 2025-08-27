@@ -8,19 +8,18 @@ local utils = import 'utils.libjsonnet';
   version: '0.0.2',
   want_main: true,
   citation+: {
-    'date-released': '2025-04-12',
+    'date-released': '2025-08-27',
   },
   pyproject+: {
     tool+: {
       poetry+: {
         dependencies+: {
-          aiohttp: '^3.11.16',
-          click: '^8.1.8',
+          aiohttp: '^3.12.15',
         },
         group+: {
           tests+: {
             dependencies+: {
-              'pytest-asyncio': '^0.26.0',
+              'pytest-asyncio': '^1.1.0',
             },
           },
         },
@@ -38,11 +37,21 @@ local utils = import 'utils.libjsonnet';
   ],
   local funding_name = '%s2' % std.asciiLower(self.github_username),
   github_username: 'Tatsh',
+  social+: {
+    mastodon+: { id: '109370961877277568' },
+  },
   github+: {
     funding+: {
       ko_fi: funding_name,
       liberapay: funding_name,
       patreon: funding_name,
+    },
+  },
+  docs_conf+: {
+    config+: {
+      intersphinx_mapping+: {
+        aiohttp: ['https://docs.aiohttp.org/en/stable/', null],
+      },
     },
   },
 }
