@@ -34,22 +34,21 @@ class TextServiceError(Exception):
     """An error occurred with the USPS text service."""
 
 
-async def usps_track(  # noqa: PLR0913
-        phone_number: str,
-        tracking_numbers: Iterable[str],
-        trace_configs: list[TraceConfig] | None = None,
-        *,
-        confirm_sms: bool = True,
-        email: str = DEFAULT_STR_VALUE,
-        name: str = DEFAULT_STR_VALUE,
-        text_alert: bool = True,
-        text_all: bool = True,
-        text_dnd: bool = True,
-        text_future: bool = True,
-        text_oa: bool = True,
-        text_pickup: bool = True,
-        text_today: bool = True,
-        raise_for_status: bool = False) -> None:
+async def usps_track(phone_number: str,
+                     tracking_numbers: Iterable[str],
+                     trace_configs: list[TraceConfig] | None = None,
+                     *,
+                     confirm_sms: bool = True,
+                     email: str = DEFAULT_STR_VALUE,
+                     name: str = DEFAULT_STR_VALUE,
+                     text_alert: bool = True,
+                     text_all: bool = True,
+                     text_dnd: bool = True,
+                     text_future: bool = True,
+                     text_oa: bool = True,
+                     text_pickup: bool = True,
+                     text_today: bool = True,
+                     raise_for_status: bool = False) -> None:
     """
     Track a package using the USPS tracking system via SMS.
 
