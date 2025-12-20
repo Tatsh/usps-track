@@ -19,8 +19,8 @@ usps-track
       :target: https://github.com/Tatsh/usps-track/blob/master/LICENSE.txt
       :alt: License
 
-   .. image:: https://img.shields.io/github/commits-since/Tatsh/usps-track/v0.0.2/master
-      :target: https://github.com/Tatsh/usps-track/compare/v0.0.2...master
+   .. image:: https://img.shields.io/github/commits-since/Tatsh/usps-track/v0.0.3/master
+      :target: https://github.com/Tatsh/usps-track/compare/v0.0.3...master
       :alt: GitHub commits since latest release (by SemVer including pre-releases)
 
    .. image:: https://github.com/Tatsh/usps-track/actions/workflows/codeql.yml/badge.svg
