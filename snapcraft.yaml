@@ -1,0 +1,24 @@
+apps:
+  usps-track:
+    command: 'bin/usps-track'
+    plugs:
+      - 'home'
+      - 'network'
+      - 'network-bind'
+base: 'core24'
+confinement: 'strict'
+description: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.'
+grade: 'stable'
+name: 'usps-track'
+parts:
+  usps-track:
+    plugin: 'poetry'
+    source: '.'
+    stage-packages: []
+platforms:
+  amd64:
+    build-on: 'amd64'
+  arm64:
+    build-on: 'arm64'
+summary: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.'
+version: '0.0.3'
