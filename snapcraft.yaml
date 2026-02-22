@@ -20,5 +20,5 @@ platforms:
     build-on: 'amd64'
   arm64:
     build-on: 'arm64'
-summary: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.'
+summary: 'Quickly track packages via the command line'
 version: '0.0.3'
