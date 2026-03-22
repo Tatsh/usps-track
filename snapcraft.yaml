@@ -7,12 +7,19 @@ apps:
       - 'network-bind'
 base: 'core24'
 confinement: 'strict'
+contact: 'https://github.com/Tatsh/usps-track/issues'
 description: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.'
+donation: 'https://buymeacoffee.com/Tatsh'
 grade: 'stable'
+issues: 'https://github.com/Tatsh/usps-track/issues'
+license: 'MIT'
 name: 'usps-track'
 parts:
   usps-track:
-    plugin: 'poetry'
+    build-packages: []
+    plugin: 'python'
+    python-packages:
+      - '.'
     source: '.'
     stage-packages: []
 platforms:
@@ -20,5 +27,8 @@ platforms:
     build-on: 'amd64'
   arm64:
     build-on: 'arm64'
-summary: 'Quickly track packages via the command line'
+source-code: 'https://github.com/Tatsh/usps-track'
+summary: 'Quickly track USPS and international packages via the command line.'
+title: 'usps-track'
 version: '0.0.3'
+website: 'https://tatsh.github.io/usps-track/'
