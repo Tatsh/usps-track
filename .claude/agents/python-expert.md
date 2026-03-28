@@ -36,7 +36,11 @@ conventions defined in the instruction files under `.github/instructions/`.
   Additional third-party loggers can be added as needed:
 
   ```python
-  setup_logging(debug=debug, loggers={'usps_track': {}, 'urllib3': {}, 'soupsieve': {}})
+  setup_logging(debug=debug, loggers={
+      'usps_track': {},
+      'urllib3': {},
+      'soupsieve': {},
+  })
   ```
 
   In library modules, define a module-level logger (not exported):
@@ -209,8 +213,8 @@ modules, or functions:
 - `` :py:func:`usps_track.string.slugify` `` for functions
 - `` :py:class:`usps_track.typing.ProbeDict` `` for classes
 - `` :py:meth:`MyClass.my_method` `` for methods
-- Use `~` to shorten the displayed name: `` :py:func:`~usps_track.string.slugify` `` renders as
-  `slugify`
+- Use `~` to shorten the displayed name:
+  `` :py:func:`~usps_track.string.slugify` `` renders as `slugify`
 - This applies to third-party types as well: `` :py:class:`~pathlib.Path` ``,
   `` :py:func:`~json.dumps` ``, `` :py:class:`~click.Context` ``, etc.
 

@@ -2430,7 +2430,7 @@ tests = [
 requires-dist = [
     { name = "bascom", specifier = ">=0.1.2" },
     { name = "click", specifier = ">=8.3.1" },
-    { name = "niquests", specifier = ">=3.14.2" },
+    { name = "niquests", specifier = ">=3.18.2" },
     { name = "typing-extensions", specifier = ">=4.15.0" },
 ]
 
@@ -2439,7 +2439,7 @@ dev = [
     { name = "commitizen", specifier = ">=4.13.9" },
     { name = "cz-path", specifier = ">=0.0.6" },
     { name = "mypy", specifier = ">=1.19.1" },
-    { name = "ruff", specifier = ">=0.15.7" },
+    { name = "ruff", specifier = ">=0.15.8" },
     { name = "yapf", specifier = ">=0.43.0" },
 ]
 docs = [
