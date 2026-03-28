@@ -1,12 +1,11 @@
 """Main library code for usps_track."""
 from __future__ import annotations
 
+from json import JSONDecodeError
 from typing import TYPE_CHECKING, TypedDict, cast
 import logging
 
-from aiohttp import TraceConfig
-from aiohttp.client_exceptions import ContentTypeError
-import aiohttp
+import niquests
 
 from .constants import (
     DEFAULT_STR_VALUE,
@@ -36,7 +35,6 @@ class TextServiceError(Exception):
 
 async def usps_track(phone_number: str,
                      tracking_numbers: Iterable[str],
-                     trace_configs: list[TraceConfig] | None = None,
                      *,
                      confirm_sms: bool = True,
                      email: str = DEFAULT_STR_VALUE,
@@ -61,9 +59,6 @@ async def usps_track(phone_number: str,
     tracking_numbers : Iterable[str]
         Tracking numbers to track. USPS does generally accept international values, usually after
         the package gets into the US, but sometimes earlier than that (especially for Royal Mail).
-
-    trace_configs : list[TraceConfig] | None
-        A list of ``aiohttp.TraceConfig`` instances.
 
     raise_for_status : bool
         Raise if any individual request fails.
@@ -93,40 +88,39 @@ async def usps_track(phone_number: str,
     TextServiceError
         If the USPS text service returns an error.
     """
-    async with aiohttp.ClientSession(  # noqa: PLR1702
-            headers=HEADERS, trace_configs=trace_configs) as session:
+    async with niquests.AsyncSession(headers=HEADERS) as session:
         for number in tracking_numbers:
-            async with session.get(URL_TRACK_CONFIRM_ACTION,
-                                   params={'qtc_tLabels1': number},
-                                   raise_for_status=raise_for_status) as r:
-                if 'could not locate the tracking information' in await r.text():
-                    continue
-                async with session.post(URL_TRACK_CONFIRM_UPDATE,
-                                        data={
-                                            'confirmSms': on_off(confirm_sms),
-                                            'email1': email,
-                                            'label': number,
-                                            'name1': name,
-                                            'smsNumber': phone_number,
-                                            'textAlert': on_off(text_alert),
-                                            'textAll': on_off(text_all),
-                                            'textDnd': on_off(text_dnd),
-                                            'textFuture': on_off(text_future),
-                                            'textOA': on_off(text_oa),
-                                            'textPickup': on_off(text_pickup),
-                                            'textToday': on_off(text_today)
-                                        },
-                                        headers={
-                                            'Referer':
-                                                f'{URL_TRACK_CONFIRM_ACTION}?qtc_tLabels1={number}',
-                                            'X-Requested-With':
-                                                'XMLHttpRequest'
-                                        },
-                                        raise_for_status=raise_for_status) as r2:
-                    try:
-                        if cast('ResponseDict', await r2.json()).get('textServiceError') != 'false':
-                            raise TextServiceError
-                    except ContentTypeError:
-                        logger.debug('Error updating %s. Tracking number probably does not exist.',
-                                     number)
-                        continue
+            r = await session.get(URL_TRACK_CONFIRM_ACTION, params={'qtc_tLabels1': number})
+            if raise_for_status:
+                r.raise_for_status()
+            if 'could not locate the tracking information' in (r.text or ''):
+                continue
+            r2 = await session.post(URL_TRACK_CONFIRM_UPDATE,
+                                    data={
+                                        'confirmSms': on_off(confirm_sms),
+                                        'email1': email,
+                                        'label': number,
+                                        'name1': name,
+                                        'smsNumber': phone_number,
+                                        'textAlert': on_off(text_alert),
+                                        'textAll': on_off(text_all),
+                                        'textDnd': on_off(text_dnd),
+                                        'textFuture': on_off(text_future),
+                                        'textOA': on_off(text_oa),
+                                        'textPickup': on_off(text_pickup),
+                                        'textToday': on_off(text_today)
+                                    },
+                                    headers={
+                                        'Referer':
+                                            f'{URL_TRACK_CONFIRM_ACTION}?qtc_tLabels1={number}',
+                                        'X-Requested-With':
+                                            'XMLHttpRequest'
+                                    })
+            if raise_for_status:
+                r2.raise_for_status()
+            try:
+                if cast('ResponseDict', r2.json()).get('textServiceError') != 'false':
+                    raise TextServiceError
+            except JSONDecodeError:
+                logger.debug('Error updating %s. Tracking number probably does not exist.', number)
+                continue

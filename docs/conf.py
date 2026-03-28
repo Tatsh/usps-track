@@ -75,6 +75,6 @@ html_theme_options = {
     'toc_title_is_page_title': True
 }
 intersphinx_mapping = {
-    'aiohttp': ('https://docs.aiohttp.org/en/stable/', None),
+    'niquests': ('https://niquests.readthedocs.io/en/stable/', None),
     'python': ('https://docs.python.org/3', None),
 }

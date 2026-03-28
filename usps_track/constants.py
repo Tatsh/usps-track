@@ -1,11 +1,6 @@
 """Constants."""
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from aiohttp.typedefs import LooseHeaders
-
 __all__ = ('DEFAULT_STR_VALUE', 'HEADERS', 'URL_PREFIX', 'URL_TRACK_CONFIRM_ACTION',
            'URL_TRACK_CONFIRM_UPDATE', 'US_PHONE_NUMBER_WITH_LEADING_ONE_LENGTH')
 
@@ -15,7 +10,7 @@ Default value for optional string parameters.
 
 :meta hide-value:
 """
-HEADERS: LooseHeaders = {
+HEADERS: dict[str, str] = {
     'Accept':
         'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language':

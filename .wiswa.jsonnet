@@ -16,7 +16,7 @@ local utils = import 'utils.libjsonnet';
     tool+: {
       poetry+: {
         dependencies+: {
-          aiohttp: utils.latestPypiPackageVersionCaret('aiohttp'),
+          niquests: utils.latestPypiPackageVersionCaret('niquests'),
         },
         group+: {
           tests+: {
