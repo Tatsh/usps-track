@@ -31,14 +31,6 @@ Quickly track via SMS several USPS (and some international) tracking numbers via
 
 ## Installation
 
-### Poetry
-
-```shell
-poetry add usps-track
-```
-
-### Pip
-
 ```shell
 pip install usps-track
 ```
@@ -48,5 +40,11 @@ pip install usps-track
 Add `-d` to show debug logs.
 
 ```shell
-usps-track TRACKING_NUMBER PHONE_NUMBER
+Usage: usps-track [OPTIONS] TRACKING_NUMBER PHONE_NUMBER
+
+  Track USPS packages using tracking numbers and phone number.
+
+Options:
+  -d, --debug  Enable debug logging.
+  -h, --help   Show this message and exit.
 ```
