@@ -15,7 +15,7 @@ __all__ = ('main',)
 log = logging.getLogger(__name__)
 
 
-@click.command('usps-track')
+@click.command('usps-track', context_settings={'help_option_names': ('-h', '--help')})
 @click.argument('tracking_numbers', metavar='TRACKING_NUMBER', nargs=-1)
 @click.argument('phone_number', metavar='PHONE_NUMBER', nargs=1)
 @click.option('-d', '--debug', is_flag=True, help='Enable debug logging.')

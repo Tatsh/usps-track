@@ -7,6 +7,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [unreleased]
 
+### Added
+
+- `-h` as a short alias for `--help`.
+
 ### Changed
 
 - Switched to niquests library.

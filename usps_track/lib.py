@@ -64,24 +64,34 @@ async def usps_track(phone_number: str,
         Raise if any individual request fails.
 
     confirm_sms : bool
+        Whether to confirm SMS enrolment.
 
     email : str
+        Email address for notifications.
 
     name : str
+        Name associated with the tracking request.
 
     text_alert : bool
+        Enable text alerts.
 
     text_all : bool
+        Enable all text notifications.
 
     text_dnd : bool
+        Enable do-not-disturb override for texts.
 
     text_future : bool
+        Enable future delivery text notifications.
 
     text_oa : bool
+        Enable out-for-delivery text notifications.
 
     text_pickup : bool
+        Enable pickup-available text notifications.
 
     text_today : bool
+        Enable today's delivery text notifications.
 
     Raises
     ------
