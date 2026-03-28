@@ -71,6 +71,26 @@ async def test_usps_track_text_service_error(mocker: MockerFixture) -> None:
 
 
 @pytest.mark.asyncio
+async def test_usps_track_raise_for_status(mocker: MockerFixture) -> None:
+    mock_response_get = MagicMock()
+    mock_response_get.text = ''
+    mock_response_get.raise_for_status = MagicMock()
+    mock_response_post = MagicMock()
+    mock_response_post.json.return_value = {'textServiceError': 'false'}
+    mock_response_post.raise_for_status = MagicMock()
+    mock_session = AsyncMock()
+    mock_session.get.return_value = mock_response_get
+    mock_session.post.return_value = mock_response_post
+    mock_session.__aenter__.return_value = mock_session
+    mocker.patch('usps_track.lib.niquests.AsyncSession', return_value=mock_session)
+
+    await usps_track('123-456-7890', ['123456789012'], raise_for_status=True)
+
+    mock_response_get.raise_for_status.assert_called_once()
+    mock_response_post.raise_for_status.assert_called_once()
+
+
+@pytest.mark.asyncio
 async def test_usps_track_content_type_error(mocker: MockerFixture) -> None:
     mock_response_get = MagicMock()
     mock_response_get.text = 'tracking info'
