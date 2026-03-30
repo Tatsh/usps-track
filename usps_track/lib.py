@@ -1,8 +1,8 @@
-"""Main library code for usps_track."""
+"""Main library code for ``usps_track``."""
 from __future__ import annotations
 
 from json import JSONDecodeError
-from typing import TYPE_CHECKING, TypedDict, cast
+from typing import TYPE_CHECKING, Literal, TypedDict, cast
 import logging
 
 import niquests
@@ -13,17 +13,33 @@ from .constants import (
     URL_TRACK_CONFIRM_ACTION,
     URL_TRACK_CONFIRM_UPDATE,
 )
-from .utils import on_off
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
 
 __all__ = ('TextServiceError', 'usps_track')
 
-logger = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 
 
-class ResponseDict(TypedDict):
+def _on_off(val: bool) -> Literal['on', 'off']:  # noqa: FBT001
+    """
+    Convert a boolean value to ``'on'`` or ``'off'``.
+
+    Parameters
+    ----------
+    val : bool
+        The boolean value to convert.
+
+    Returns
+    -------
+    Literal['on', 'off']
+        ``'on'`` if *val* is truthy, ``'off'`` otherwise.
+    """
+    return 'on' if val else 'off'
+
+
+class _ResponseDict(TypedDict):
     """Response dictionary from USPS text service."""
     textServiceError: str
     """Error string."""
@@ -60,9 +76,6 @@ async def usps_track(phone_number: str,
         Tracking numbers to track. USPS does generally accept international values, usually after
         the package gets into the US, but sometimes earlier than that (especially for Royal Mail).
 
-    raise_for_status : bool
-        Raise if any individual request fails.
-
     confirm_sms : bool
         Whether to confirm SMS enrolment.
 
@@ -93,6 +106,9 @@ async def usps_track(phone_number: str,
     text_today : bool
         Enable today's delivery text notifications.
 
+    raise_for_status : bool
+        Raise if any individual request fails.
+
     Raises
     ------
     TextServiceError
@@ -107,18 +123,18 @@ async def usps_track(phone_number: str,
                 continue
             r2 = await session.post(URL_TRACK_CONFIRM_UPDATE,
                                     data={
-                                        'confirmSms': on_off(confirm_sms),
+                                        'confirmSms': _on_off(confirm_sms),
                                         'email1': email,
                                         'label': number,
                                         'name1': name,
                                         'smsNumber': phone_number,
-                                        'textAlert': on_off(text_alert),
-                                        'textAll': on_off(text_all),
-                                        'textDnd': on_off(text_dnd),
-                                        'textFuture': on_off(text_future),
-                                        'textOA': on_off(text_oa),
-                                        'textPickup': on_off(text_pickup),
-                                        'textToday': on_off(text_today)
+                                        'textAlert': _on_off(text_alert),
+                                        'textAll': _on_off(text_all),
+                                        'textDnd': _on_off(text_dnd),
+                                        'textFuture': _on_off(text_future),
+                                        'textOA': _on_off(text_oa),
+                                        'textPickup': _on_off(text_pickup),
+                                        'textToday': _on_off(text_today)
                                     },
                                     headers={
                                         'Referer':
@@ -129,8 +145,8 @@ async def usps_track(phone_number: str,
             if raise_for_status:
                 r2.raise_for_status()
             try:
-                if cast('ResponseDict', r2.json()).get('textServiceError') != 'false':
+                if cast('_ResponseDict', r2.json())['textServiceError'] != 'false':
                     raise TextServiceError
             except JSONDecodeError:
-                logger.debug('Error updating %s. Tracking number probably does not exist.', number)
+                log.debug('Error updating %s. Tracking number probably does not exist.', number)
                 continue

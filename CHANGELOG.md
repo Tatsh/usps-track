@@ -7,6 +7,18 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [unreleased]
 
+### Changed
+
+- Inlined `on_off` utility into `lib` module as a private `_on_off` function.
+- Renamed `ResponseDict` to `_ResponseDict` to reflect its private usage.
+- Renamed `logger` to `log` in `lib` module.
+- Use dict key access instead of `.get()` for `textServiceError` response field.
+
+### Removed
+
+- `usps_track.utils` module (functionality moved into `lib`).
+- `tests/test_utils.py` (no longer needed after removing `utils` module).
+
 ## [0.0.4] - 2026-03-28
 
 ### Added
