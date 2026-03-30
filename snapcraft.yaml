@@ -28,7 +28,7 @@ platforms:
   arm64:
     build-on: 'arm64'
 source-code: 'https://github.com/Tatsh/usps-track'
-summary: 'Quickly track USPS and international packages via the command line.'
+summary: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.'
 title: 'usps-track'
 version: '0.0.4'
 website: 'https://tatsh.github.io/usps-track/'

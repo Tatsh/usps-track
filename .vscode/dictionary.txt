@@ -22,7 +22,6 @@ datatables
 debugpy
 docstrings
 doctrees
-dorny
 dunder
 eeyore
 elif
@@ -61,6 +60,7 @@ namedtuples
 niquests
 norecursedirs
 notarytool
+npmjs
 numpy
 numpydoc
 onefile
