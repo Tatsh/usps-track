@@ -1,4 +1,5 @@
 anchore
+Ångström
 appdir
 appimage
 appinfo
@@ -12,6 +13,7 @@ codesign
 colorlog
 commitizen
 conftest
+cooldown
 coveragerc
 coverallsapp
 ctypes
@@ -21,6 +23,7 @@ datatable
 datatables
 debugpy
 docstrings
+doctree
 doctrees
 dunder
 eeyore
@@ -29,7 +32,7 @@ esbenp
 esbonio
 excinfo
 filevers
-fontawesome
+flathub
 foxundermoon
 functools
 genindex
@@ -39,6 +42,7 @@ htmlcov
 intersphinx
 isort
 itertools
+jinja
 jsonnet
 jsonschema
 khtml
@@ -75,6 +79,7 @@ pydantic
 pydocstyle
 pyinstaller
 pylint
+pylock
 pypa
 pypi
 pyproject
@@ -83,6 +88,7 @@ referer
 regen
 rstcheck
 schemafile
+sdist
 setattr
 shellcheck
 shellformat
@@ -108,8 +114,8 @@ venv
 vers
 virtualenv
 wiswa
+wiswa's
 xcrun
 yapf
 yapfignore
 yarnrc
-ångström

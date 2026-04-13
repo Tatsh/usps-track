@@ -1,17 +1,14 @@
 local utils = import 'utils.libjsonnet';
 
 {
+  uses_user_defaults: true,
   description: 'Quickly track via SMS several USPS (and some international) tracking numbers via the command line.',
   keywords: ['command line', 'shipping', 'usps'],
   project_name: 'usps-track',
   version: '0.0.4',
   want_main: true,
-  citation+: {
-    'date-released': '2025-08-27',
-  },
-  copilot+: {
-    intro: 'usps-track is a command line tool to track USPS packages via SMS.',
-  },
+  want_flatpak: true,
+  publishing+: { flathub: 'sh.tat.usps-track' },
   pyproject+: {
     tool+: {
       poetry+: {
