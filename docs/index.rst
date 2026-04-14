@@ -22,9 +22,6 @@ Commands
    .. automodule:: usps_track.lib
       :members:
 
-   .. automodule:: usps_track.utils
-      :members:
-
    .. toctree::
       :maxdepth: 2
       :caption: Contents:
