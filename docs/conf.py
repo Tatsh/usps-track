@@ -76,5 +76,5 @@ html_theme_options = {
 }
 intersphinx_mapping = {
     'niquests': ('https://niquests.readthedocs.io/en/stable/', None),
-    'python': ('https://docs.python.org/3', None),
+    'python': ('https://docs.python.org/3', None)
 }

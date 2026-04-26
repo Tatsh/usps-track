@@ -26,7 +26,7 @@ def main(phone_number: str, tracking_numbers: tuple[str, ...], *, debug: bool = 
                       'usps_track': {
                           'handlers': ('console',),
                           'level': logging.DEBUG if debug else logging.INFO,
-                          'propagate': False,
+                          'propagate': False
                       }
                   })
     if '-' not in phone_number:
