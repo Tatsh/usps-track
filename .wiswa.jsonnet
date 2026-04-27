@@ -9,6 +9,9 @@ local utils = import 'utils.libjsonnet';
   want_main: true,
   want_flatpak: true,
   publishing+: { flathub: 'sh.tat.usps-track' },
+  snapcraft+: {
+    summary: 'Quickly track USPS and international packages via the command line.',
+  },
   pyproject+: {
     tool+: {
       poetry+: {
