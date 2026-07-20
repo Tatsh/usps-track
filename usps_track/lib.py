@@ -22,7 +22,8 @@ __all__ = ('TextServiceError', 'usps_track')
 log = logging.getLogger(__name__)
 
 
-def _on_off(val: bool) -> Literal['on', 'off']:  # noqa: FBT001
+def _on_off(
+        val: bool) -> Literal['on', 'off']:  # ruff:ignore[boolean-type-hint-positional-argument]
     """
     Convert a boolean value to ``'on'`` or ``'off'``.
 
