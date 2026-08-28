@@ -13,7 +13,6 @@ codesign
 colorlog
 commitizen
 conftest
-cooldown
 coveragerc
 coverallsapp
 ctypes
@@ -28,6 +27,7 @@ doctrees
 dunder
 eeyore
 elif
+endswith
 esac
 esbenp
 esbonio
@@ -41,7 +41,6 @@ globaltoc
 handoff
 hoverxref
 htmlcov
-intersphinx
 isort
 itertools
 jinja
@@ -64,8 +63,10 @@ myproject
 mypy
 namedtuples
 niquests
+noqa
 norecursedirs
 notarytool
+nullglob
 numpy
 onefile
 oneline
@@ -90,11 +91,13 @@ referer
 regen
 ripgreprc
 rstcheck
+sbclaude
 schemafile
 sdist
 setattr
 shellcheck
 shellformat
+shopt
 signtool
 snapcore
 snapcraft

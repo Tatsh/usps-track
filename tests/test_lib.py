@@ -4,8 +4,9 @@ from json import JSONDecodeError
 from typing import TYPE_CHECKING
 from unittest.mock import AsyncMock, MagicMock
 
-from usps_track.lib import TextServiceError, usps_track
 import pytest
+
+from usps_track.lib import TextServiceError, usps_track
 
 if TYPE_CHECKING:
     from pytest_mock import MockerFixture
