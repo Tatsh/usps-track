@@ -20,7 +20,8 @@ parts:
     plugin: 'python'
     python-packages:
       - '.'
-    source: '.'
+    source: 'https://github.com/Tatsh/usps-track.git'
+    source-tag: 'v0.0.5'
     stage-packages: []
 platforms:
   amd64:

@@ -15,8 +15,9 @@ modules:
     buildsystem: 'simple'
     name: 'usps-track'
     sources:
-      - path: '.'
-        type: 'dir'
+      - tag: 'v0.0.5'
+        type: 'git'
+        url: 'https://github.com/Tatsh/usps-track'
 runtime: 'org.freedesktop.Platform'
 runtime-version: '26.08'
 sdk: 'org.freedesktop.Sdk'
